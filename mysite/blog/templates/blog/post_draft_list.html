@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block body_block %}
+<div class="posttitle loader">
+{% for post in post_list %}
+<div class="container">
+    <h1><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h1>
+    <p>{{post.text|truncatechars:200}}</p>
+    <p class="date-create">Created:{{post.create_date|date:'d-m-y'}}</p>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
